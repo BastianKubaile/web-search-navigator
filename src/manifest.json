@@ -20,6 +20,9 @@
         "http://*/*",
         "https://*/*"
     ],
+    "web_accessible_ressources": [
+        "search_results.css"
+    ],
     "options_page": "options.html",
     "options_ui": {
         "page": "options.html",

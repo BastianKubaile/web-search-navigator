@@ -20,3 +20,8 @@ div {
 #status {
   font-weight: bold;
 }
+
+#highlight_css{
+  width: 250px;
+  height: 150px;
+}

@@ -62,6 +62,8 @@ const saveOptions = () => {
     () => flashMessage('Options saved.'),
     () => flashMessage('Error when saving options.')
   );
+
+  // Save changes to search_resulsts.css
 };
 
 // Restores select box and checkbox state using the preferences
@@ -69,6 +71,14 @@ const saveOptions = () => {
 const restoreOptions = () => {
   extension.options.sync.load().then(() => {
 
+    const css_url = chrome.runtime.getURL("search_results.css")
+    fetch(css_url)
+      .then((response) => {
+        response.text().then((text) => {
+          document.getElementById("highlight_css").value = text;
+        })
+
+      })
     // Handle checks separately.
     document.getElementById('wrap-navigation').checked = extension.options.sync.values.wrapNavigation;
     document.getElementById('auto-select-first').checked = extension.options.sync.values.autoSelectFirst;
